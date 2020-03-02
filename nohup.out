@@ -1,0 +1,2359 @@
+ * Using credentials: ashahChen
+ * Running on http://localhost:7501/ (Press CTRL+C to quit)
+[2020-02-24 20:19:11,870] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a12d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a12d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a12d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:11] "GET / HTTP/1.1" 500 -
+127.0.0.1 - - [24/Feb/2020 20:19:12] "GET /favicon.ico HTTP/1.1" 404 -
+[2020-02-24 20:19:15,277] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a12d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a12d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a12d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:15] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:16,434] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaad90>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaad90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaad90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:16] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:16,870] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5510>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:16] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:17,115] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5910>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5910>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5910>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:17] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:17,324] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ec87a90>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec87a90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec87a90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:17] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:18,480] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a1690>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a1690>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10e3a1690>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:18] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:19,016] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc23d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc23d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc23d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:19] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:19,243] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc2850>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc2850>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc2850>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:19] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:19,365] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ec09950>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec09950>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec09950>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:19] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:27,741] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa510>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:27] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:28,932] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecba4d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecba4d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecba4d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:28] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:29,363] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecba610>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecba610>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecba610>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:29] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:29,574] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ec87990>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec87990>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec87990>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:29] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:29,792] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa510>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:29] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:29,956] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc2910>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc2910>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecc2910>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:29] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:30,149] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd3110>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd3110>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd3110>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:30] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:30,350] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5190>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5190>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecb5190>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:30] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:40,262] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaabd0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaabd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaabd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:40] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:41,123] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecbbfd0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecbbfd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecbbfd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:41] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:41,678] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd51d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd51d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd51d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:41] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:42,008] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10eca3f90>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10eca3f90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10eca3f90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:42] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:42,202] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa6d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa6d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa6d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:42] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:42,409] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd0a50>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd0a50>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd0a50>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:42] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:42,620] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd4410>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd4410>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd4410>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:42] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:42,831] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaacd0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaacd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaacd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:42] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:43,057] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ec099d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec099d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec099d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:43] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:43,195] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd4cd0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd4cd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecd4cd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:43] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:43,469] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ece02d0>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ece02d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ece02d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:43] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:44,571] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ec09250>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec09250>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ec09250>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:44] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:45,069] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecbbf90>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecbbf90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecbbf90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:45] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:45,277] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ece0d90>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ece0d90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ece0d90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:45] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:45,477] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ece9410>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ece9410>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ece9410>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:45] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:45,756] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa750>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa750>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10ecaa750>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:45] "GET / HTTP/1.1" 500 -
+[2020-02-24 20:19:46,461] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 83, in create_connection
+    raise err
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x10eca3690>: Failed to establish a new connection: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10eca3690>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/app.py", line 174, in _render_page
+    content = self.renderer.render(text, self.auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/lib/python3.7/site-packages/grip/renderers.py", line 77, in render
+    r = requests.post(url, headers=headers, data=data, auth=auth)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/Cellar/grip/4.5.2_1/libexec/vendor/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /markdown/raw (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x10eca3690>: Failed to establish a new connection: [Errno 61] Connection refused'))
+127.0.0.1 - - [24/Feb/2020 20:19:46] "GET / HTTP/1.1" 500 -
+127.0.0.1 - - [24/Feb/2020 20:20:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET /__/grip/asset/frameworks-02a3eaa24db2bd1ed9b64450595fc2cf.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET /__/grip/asset/site-889ba3896abfbcb8742b625020c44299.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET /__/grip/static/octicons/octicons.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET /__/grip/asset/github-9f1009c5473fcfa407b651513175cb55.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET /examples/todo-go/screenshots/screenshots.png HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:04] "GET /__/grip/static/octicons/octicons.woff2?ef21c39f0ca9b1b5116e5eb7ac5eabe6 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Feb/2020 20:20:08] "GET /__/grip/static/favicon.ico HTTP/1.1" 200 -
